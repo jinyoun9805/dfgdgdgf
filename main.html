@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name ="apple-mobile-web-app-capable" content="yes">
+    <title>Document</title>
+    <script src="./service-worker.js"></script>
+    <!-- 매니페스트 연결, 테메색상 변경 -->
+    <link rel="manifest" href="manifest.json">
+    <mete nmae="theme-color" content="#ffffff"></mete> 
+    <!-- 뷰포트 , 파비콘 설정 -->
+    <mate name="viewport" content = "width=device-width, initial-scale=1"></mate>
+    <link rel="shortcut icon" href="images/icons/favicon.ico">
+    <style>
+        html,body{
+            height: 100%;
+            background-color: #f3a530;
+            color: #fff;
+        }
+        .container {
+            height: 100%;       
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello , PWA!</h1>
+        <img src="images/icons/android-chrome-192x192.png" alt="">
+        <p>by Javascript</p>
+    </div>
+</body>
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("service-worker.js");
+    });
+}
+</script>
+</html>
